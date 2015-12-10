@@ -1,25 +1,31 @@
 package businessLayer.userManagement;
 
 public class User {
-	private String user;
+	/**
+	 * Class for the user
+	 */
+	private String firstName;
 	private String password;
 	private int id;
-	private String address;
+	private String lastName;
+	
 	
 
-	
-	public User(String user, String password, int id, String address) {
+	public User(){
+		
+	}
+	public User(int id ,String password,  String firstName, String lastName) {
 		super();
-		this.user = user;
+		this.firstName = firstName;
 		this.password = password;
 		this.id = id;
-		this.address = address;
+		this.lastName = lastName;
 	}
-	public String getUser() {
-		return user;
+	public String getFirstName() {
+		return firstName;
 	}
-	public void setUser(String user) {
-		this.user = user;
+	public void setFirstName(String user) {
+		this.firstName = user;
 	}
 	public String getPassword() {
 		return password;
@@ -33,11 +39,11 @@ public class User {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public String getAddress() {
-		return address;
+	public String getLastName() {
+		return lastName;
 	}
-	public void setAddress(String address) {
-		this.address = address;
+	public void setLastName(String address) {
+		this.lastName = address;
 	}
 	
 }

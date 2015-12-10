@@ -1,14 +1,17 @@
 package businessLayer.userManagement;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-public class UserList {
+import dataAccessLayer.UserFileReader;
+
+public class UsersOperation{
 	private ArrayList<User> users = new ArrayList<>();
 
-	public UserList() {
+	public UsersOperation() throws IOException {
 		users = getUserList();
-		// getArrayListFromdb
+	
 	}
 
 	public boolean checkPassword(int id, String password) {
@@ -27,16 +30,9 @@ public class UserList {
 		users.add(newUser);
 	}
 	
-	private ArrayList<User> getUserList(){
-		ArrayList<User> temp = new ArrayList<>();
-		temp.add(new User("Gunjan", "Shakya", 1234, "Nepal"));
-		temp.add(new User("Prabhat", "Poudel", 1234, "Nepal"));
-		temp.add(new User("Hagos", "Haile", 1234, "Ethiyopia"));
-		temp.add(new User("Ahmed", "Amin", 1234, "Eygpt"));
+	private ArrayList<User> getUserList() throws IOException{
+		return (UserFileReader.getUsers());
 		
-		//Need to access file connector or Db connection to access data from 
-		
-		return temp;
 	}
 
 }
