@@ -7,14 +7,17 @@ import java.util.Iterator;
 import dataAccessLayer.UserFileReader;
 
 public class UsersOperation{
-	private ArrayList<User> users = new ArrayList<>();
+	/**
+	 * Operation that can be done on Users are added in the class
+	 */
+	private static ArrayList<User> users = new ArrayList<>();
 
 	public UsersOperation() throws IOException {
 		users = getUserList();
 	
 	}
 
-	public boolean checkPassword(int id, String password) {
+	public static boolean checkPassword(int id, String password) {
 		if (id == 0 | password == null)
 			return false;
 		Iterator<User> itr = users.iterator();
