@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+import dataAccessLayer.GetUserFromDB;
 import dataAccessLayer.UserFileReader;
 
 public class UsersOperation{
@@ -12,11 +13,15 @@ public class UsersOperation{
 	 */
 	private static ArrayList<User> users = new ArrayList<>();
 
-	public UsersOperation() throws IOException {
-		users = getUserList();
-	
+	public String toString(){
+		String result = null;
+		Iterator<User> usrItr= users.iterator();
+		while (usrItr.hasNext()) {
+			result=result+usrItr.next();
+		}
+		return result;
+ 
 	}
-
 	public static boolean checkPassword(int id, String password) {
 		if (id == 0 | password == null)
 			return false;
@@ -34,7 +39,9 @@ public class UsersOperation{
 	}
 	
 	private ArrayList<User> getUserList() throws IOException{
-		return (UserFileReader.getUsers());
+		
+		GetUserFromDB users = new GetUserFromDB();
+		return (users.runSelectQuery("select"));
 		
 	}
 
