@@ -32,7 +32,7 @@ public class UsersOperation{
 		Iterator<User> itr = users.iterator();
 		while (itr.hasNext()) {
 			User element = itr.next();
-			if (element.getId() == id && element.getPassword() == password)
+			if (element.getId()==id  && element.getPassword().equals(password))
 				return true;
 		}
 		return false;
