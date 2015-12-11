@@ -1,18 +1,22 @@
 package businessLayer.userManagement;
 
-import java.io.IOException;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 
 import dataAccessLayer.GetUserFromDB;
-import dataAccessLayer.UserFileReader;
+
 
 public class UsersOperation{
 	/**
 	 * Operation that can be done on Users are added in the class
 	 */
 	private static ArrayList<User> users = new ArrayList<>();
-
+	
+	public UsersOperation() {
+		getUserList();
+	}
+	
 	public String toString(){
 		String result = null;
 		Iterator<User> usrItr= users.iterator();
@@ -38,10 +42,10 @@ public class UsersOperation{
 		users.add(newUser);
 	}
 	
-	private ArrayList<User> getUserList() throws IOException{
+	private void getUserList(){
 		
-		GetUserFromDB users = new GetUserFromDB();
-		return (users.runSelectQuery("select"));
+		GetUserFromDB usersDBObject = new GetUserFromDB();
+		users= usersDBObject.runSelectQuery("select * from users");
 		
 	}
 
