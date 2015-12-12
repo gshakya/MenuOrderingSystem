@@ -61,7 +61,6 @@ public class UsersOperation {
 	}
 
 	private void getUserList() {
-
 		GetUserFromDB usersDBObject = new GetUserFromDB();
 		users = usersDBObject.runSelectQuery("select * from users");
 

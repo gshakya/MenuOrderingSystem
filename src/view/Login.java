@@ -122,8 +122,7 @@ public class Login {
 				}
 				else{
 					JOptionPane.showMessageDialog(null, "Incorrect Password");
-				}
-					
+				}					
 			}
 		});
 		GridBagConstraints gbc_btnNewButton = new GridBagConstraints();
@@ -144,8 +143,9 @@ public class Login {
 		JButton btnNewButton_1 = new JButton("Register");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				RegistrationForm registrationObject= new RegistrationForm();
+				RegistrationForm registrationObject= new RegistrationForm();				
 				registrationObject.setVisible(true);
+				frame.setVisible(false);
 			}
 		});
 		GridBagConstraints gbc_btnNewButton_1 = new GridBagConstraints();
