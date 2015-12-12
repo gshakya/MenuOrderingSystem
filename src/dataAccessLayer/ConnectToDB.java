@@ -15,11 +15,11 @@ public interface ConnectToDB {
 			Class.forName("com.mysql.jbdc.Driver");
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
-			//e.printStackTrace();
+			e.printStackTrace();
 		}
 		Connection connect = null;
 		try {
-			connect = DriverManager.getConnection("jdbc:mysql://localhost/menuordering", "menuordering", "mysql");
+			connect = DriverManager.getConnection(host, username, password);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
