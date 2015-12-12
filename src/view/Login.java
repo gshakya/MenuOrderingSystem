@@ -4,8 +4,13 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.BorderLayout;
 import javax.swing.SwingConstants;
+
+import businessLayer.userManagement.UsersOperation;
+
 import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
@@ -22,6 +27,7 @@ public class Login {
 	private JFrame frame;
 	private JTextField textField;
 	private JPasswordField passwordField;
+	private UsersOperation uo;
 
 	/**
 	 * Launch the application.
@@ -50,6 +56,7 @@ public class Login {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
+		uo = new UsersOperation();
 		frame = new JFrame();
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -108,6 +115,15 @@ public class Login {
 		JButton btnNewButton = new JButton("Sign In");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
+				if (uo.checkPassword(Integer.parseInt(textField.getText()), passwordField.getText())){
+					
+					JOptionPane.showMessageDialog(null, "Correct Password");
+				}
+				else{
+					JOptionPane.showMessageDialog(null, "Incorrect Password");
+				}
+					
 			}
 		});
 		GridBagConstraints gbc_btnNewButton = new GridBagConstraints();

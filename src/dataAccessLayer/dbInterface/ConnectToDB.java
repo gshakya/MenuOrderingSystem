@@ -1,4 +1,4 @@
-package dataAccessLayer;
+package dataAccessLayer.dbInterface;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -15,7 +15,7 @@ public interface ConnectToDB {
 			Class.forName("com.mysql.jbdc.Driver");
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+//			e.printStackTrace();
 		}
 		Connection connect = null;
 		try {

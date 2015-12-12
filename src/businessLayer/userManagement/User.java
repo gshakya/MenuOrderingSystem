@@ -3,27 +3,29 @@ package businessLayer.userManagement;
 public class User {
 	@Override
 	public String toString() {
-		return "User [ id = " + id + ", firstName = " + firstName + ", lastName = " + lastName + "]";
+		return "User [ id = " + id + ", firstName = " + firstName + ", lastName = " + lastName + ", Admin = " + isAdmin +"]";
 	}
 
 	/**
 	 * Class for the user
 	 */
-	private String firstName;
-	private String password;
 	private int id;
+	private String firstName;	
 	private String lastName;
+	private String password;
+	private boolean isAdmin;
 
 	public User() {
 
 	}
 
-	public User(int id, String password, String firstName, String lastName) {
+	public User(int id, String firstName, String lastName, String password , boolean isAdmin) {
 		super();
 		this.firstName = firstName;
 		this.password = password;
 		this.id = id;
 		this.lastName = lastName;
+		this.isAdmin = isAdmin;
 	}
 
 	public String getFirstName() {
@@ -58,4 +60,13 @@ public class User {
 		this.lastName = address;
 	}
 
+	public boolean isAdmin() {
+		return isAdmin;
+	}
+
+	public void setAdmin(boolean isAdmin) {
+		this.isAdmin = isAdmin;
+	}
+
+	
 }

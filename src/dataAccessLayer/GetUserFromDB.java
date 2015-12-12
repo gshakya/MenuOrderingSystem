@@ -8,6 +8,8 @@ import java.util.ArrayList;
 import com.mysql.jdbc.Statement;
 
 import businessLayer.userManagement.User;
+import dataAccessLayer.dbInterface.ConnectToDB;
+import dataAccessLayer.dbInterface.ReceiveFromDB;
 
 public class GetUserFromDB implements ReceiveFromDB {
 
@@ -38,7 +40,8 @@ public class GetUserFromDB implements ReceiveFromDB {
 				tmpUser.setFirstName(resultSet.getString("first_name"));
 				tmpUser.setLastName(resultSet.getString("last_name"));
 				tmpUser.setPassword(resultSet.getString("password"));
-
+				System.out.println(Integer.parseInt(resultSet.getString("is_admin"))); 
+				tmpUser.setAdmin(Integer.parseInt(resultSet.getString("is_admin")) > 0 ? true : false);
 				users.add(tmpUser);
 
 			}

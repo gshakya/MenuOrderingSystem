@@ -1,4 +1,4 @@
-package dataAccessLayer;
+package dataAccessLayer.dbInterface;
 
 import java.util.ArrayList;
 
