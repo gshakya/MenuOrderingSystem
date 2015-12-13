@@ -33,11 +33,14 @@ public class GetUserFromDB implements ReceiveFromDB {
 				System.out.println(Integer.parseInt(resultSet.getString("is_admin")));
 				tmpUser.setAdmin(Integer.parseInt(resultSet.getString("is_admin")) > 0 ? true : false);
 				users.add(tmpUser);
-
+				
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		}
+		finally{
+			if(connect != null) try { connect.close(); } catch (SQLException e) { e.printStackTrace(); }
 		}
 
 		return users;

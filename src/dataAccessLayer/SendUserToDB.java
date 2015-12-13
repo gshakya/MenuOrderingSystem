@@ -25,7 +25,15 @@ public class SendUserToDB implements SendToDB {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
+		finally {
+			if (connect != null)
+				try {
+					connect.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+		}
 		return querySucess;
 	}
 
