@@ -1,4 +1,4 @@
-package menu;
+package businessLayer.userManagement;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -7,7 +7,6 @@ import java.util.ArrayList;
 
 import com.mysql.jdbc.Statement;
 
-import businessLayer.userManagement.User;
 import dataAccessLayer.dbInterface.ConnectToDB;
 import dataAccessLayer.dbInterface.ReceiveFromDB;
 

@@ -1,4 +1,4 @@
-package menu;
+package view;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
@@ -9,6 +9,10 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.border.EmptyBorder;
+
+import businessLayer.userManagement.AllDishes;
+import businessLayer.userManagement.Dishes;
+import businessLayer.userManagement.Orders;
 
 import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
@@ -100,7 +104,7 @@ public class UserMenu extends JFrame {
 			gbc_lblNewDishes.insets = new Insets(0, 0, 5, 5);
 			gbc_lblNewDishes.gridx = x;
 			gbc_lblNewDishes.gridy = y;
-			rbtDishes = new JCheckBox(d.name);
+			rbtDishes = new JCheckBox(d.getName());
 			checkButtons[i] = rbtDishes;
 			contentPane.add(checkButtons[i], gbc_lblNewDishes);
 			y++;
@@ -153,7 +157,7 @@ public class UserMenu extends JFrame {
 					
 	}
     
-	class placeOrder implements ActionListener {
+	public class placeOrder implements ActionListener {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			int i = 0;
@@ -177,8 +181,8 @@ public class UserMenu extends JFrame {
 			for (Dishes d : dishArray) {
 				// System.out.println(radioButtons[i].getText() +
 				// radioButtons[i].isSelected());
-				if (checkButtons[i].getText() == d.name && checkButtons[i].isSelected()) {
-					selectedDishes += d.dishID+",";
+				if (checkButtons[i].getText() == d.getName() && checkButtons[i].isSelected()) {
+					selectedDishes += d.getDishID()+",";
 				}
 				i++;				
 			}
@@ -194,8 +198,8 @@ public class UserMenu extends JFrame {
 			for (Dishes d : dishArray) {
 				// System.out.println(radioButtons[i].getText() +
 				// radioButtons[i].isSelected());
-				if (checkButtons[i].getText() == d.name && checkButtons[i].isSelected()) {
-					selectedDishes += d.name;
+				if (checkButtons[i].getText() == d.getName() && checkButtons[i].isSelected()) {
+					selectedDishes += d.getName();
 				}
 				i++;
 			}

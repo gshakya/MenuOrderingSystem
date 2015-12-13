@@ -1,4 +1,4 @@
-package menu;
+package businessLayer.userManagement;
 
 import java.awt.Component;
 import java.sql.Connection;

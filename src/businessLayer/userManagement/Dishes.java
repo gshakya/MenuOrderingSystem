@@ -1,9 +1,9 @@
-package menu;
+package businessLayer.userManagement;
 
 public class Dishes {
-	String name;
-	boolean selected;
-	int dishID;
+	private String name;
+	private boolean selected;
+	private int dishID;
   
 	public Dishes()
 	{

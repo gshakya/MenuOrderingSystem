@@ -1,4 +1,4 @@
-package menu;
+package businessLayer.userManagement;
 
 import java.sql.Connection;
 import java.sql.ResultSet;

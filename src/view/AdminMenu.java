@@ -1,4 +1,4 @@
-package menu;
+package view;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
@@ -7,7 +7,10 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import menu.UserMenu.placeOrder;
+import businessLayer.userManagement.AllDishes;
+import businessLayer.userManagement.AllOrder;
+import businessLayer.userManagement.Dishes;
+import view.UserMenu.placeOrder;
 
 import java.awt.GridBagLayout;
 import javax.swing.JLabel;
@@ -77,7 +80,7 @@ public class AdminMenu extends JFrame {
 		contentPane.setLayout(gbl_contentPane);
 		int i = 0;
 		for (Dishes d : dishArray) {
-			lblDishes = new JLabel(d.name);
+			lblDishes = new JLabel(d.getName());
 			GridBagConstraints gbc_lblDishes = new GridBagConstraints();
 			gbc_lblDishes.anchor = GridBagConstraints.WEST;
 			gbc_lblDishes.insets = new Insets(0, 0, 5, 5);
@@ -136,7 +139,7 @@ public class AdminMenu extends JFrame {
 			int i = 0;
 			for (Dishes d : dishArray) {
 				
-				txtCountId[i].setText(String.valueOf(ordr.getOrders(d.name)));
+				txtCountId[i].setText(String.valueOf(ordr.getOrders(d.getName())));
 				i++;
 			}
 		}

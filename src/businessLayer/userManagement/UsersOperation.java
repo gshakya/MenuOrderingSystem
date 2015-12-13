@@ -12,6 +12,7 @@ public class UsersOperation {
 	 * Operation that can be done on Users are added in the class
 	 */
 	private static ArrayList<User> users = new ArrayList<>();
+	private static User currentUser = new User();
 
 	public UsersOperation() {
 		getUserList();
@@ -27,12 +28,12 @@ public class UsersOperation {
 
 	}
 
-	public static int insertUserToDB(User u){
+	public static int insertUserToDB(User u) {
 		String fName = u.getFirstName();
 		String lName = u.getLastName();
 		String pass = u.getPassword();
-		String query = "INSERT INTO `users` (`id`, `First_Name`, `Last_Name`, `Password`) VALUES (NULL, \'"+fName+
-					"\', \'"+lName+"\', \'"+pass+"\')";
+		String query = "INSERT INTO `users` (`id`, `First_Name`, `Last_Name`, `Password`) VALUES (NULL, \'" + fName
+				+ "\', \'" + lName + "\', \'" + pass + "\')";
 		SendUserToDB sendUsr = new SendUserToDB();
 		users.add(u);
 		return sendUsr.runInsertQuery(query);
@@ -48,9 +49,10 @@ public class UsersOperation {
 		// return true;
 		// }
 		GetUserFromDB usersDBObject = new GetUserFromDB();
-		users = usersDBObject
+		ArrayList<User> res = usersDBObject
 				.runSelectQuery("select * from users where id =" + id + " and password =\"" + password + "\"");
-		if (users.size() == 0) {
+		currentUser = res.get(0);
+		if (res.size() == 0) {
 			return false;
 		}
 		return true;
@@ -66,4 +68,10 @@ public class UsersOperation {
 
 	}
 
+	/**
+	 * @return the currentUser
+	 */
+	public User getCurrentUser() {
+		return currentUser;
+	}
 }
