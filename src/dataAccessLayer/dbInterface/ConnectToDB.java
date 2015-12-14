@@ -11,12 +11,7 @@ public interface ConnectToDB {
 	String password = "mysql";
 
 	public static Connection getConnection() {
-		try {
-			Class.forName("com.mysql.jbdc.Driver");
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-//			e.printStackTrace();
-		}
+		
 		Connection connect = null;
 		try {
 			connect = DriverManager.getConnection(host, username, password);

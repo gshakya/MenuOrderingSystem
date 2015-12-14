@@ -1,6 +1,7 @@
-package view;
+package presentationLayer;
 
 import java.awt.BorderLayout;
+import java.awt.Component;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -10,7 +11,7 @@ import javax.swing.border.EmptyBorder;
 import businessLayer.userManagement.AllDishes;
 import businessLayer.userManagement.AllOrder;
 import businessLayer.userManagement.Dish;
-import view.UserMenu.placeOrder;
+import presentationLayer.UserMenu.placeOrder;
 
 import java.awt.GridBagLayout;
 import javax.swing.JLabel;
@@ -26,6 +27,7 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 import javax.swing.JTextField;
+import javax.swing.SwingConstants;
 
 public class AdminMenu extends JFrame {
 
@@ -47,19 +49,19 @@ public class AdminMenu extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					AdminMenu frame = new AdminMenu();
-					frame.setVisible(true);
-					frame.setTitle("Today's total Order");
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+//	public static void main(String[] args) {
+//		EventQueue.invokeLater(new Runnable() {
+//			public void run() {
+//				try {
+//					AdminMenu frame = new AdminMenu();
+//					frame.setVisible(true);
+//					frame.setTitle("Today's total Order");
+//				} catch (Exception e) {
+//					e.printStackTrace();
+//				}
+//			}
+//		});
+//	}
 
 	/**
 	 * Create the frame.
@@ -89,7 +91,7 @@ public class AdminMenu extends JFrame {
 		contentPane.setLayout(gbl_contentPane);
 		int i = 0;
 		for (Dish d : dishArray) {
-			lblDishes = new JLabel(d.getName());
+			lblDishes = new JLabel(d.getName(),SwingConstants.RIGHT);
 			GridBagConstraints gbc_lblDishes = new GridBagConstraints();
 			gbc_lblDishes.anchor = GridBagConstraints.WEST;
 			gbc_lblDishes.insets = new Insets(0, 0, 5, 5);
@@ -99,7 +101,7 @@ public class AdminMenu extends JFrame {
 			contentPane.add(lblDishes, gbc_lblDishes);
 
 			txtCount = new JTextField();
-			txtCount.setText("-------");
+			txtCount.setColumns(3);
 			GridBagConstraints gbc_txtCount = new GridBagConstraints();
 			gbc_txtCount.insets = new Insets(0, 0, 5, 5);
 			gbc_txtCount.fill = GridBagConstraints.WEST;

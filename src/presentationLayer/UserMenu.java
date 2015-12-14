@@ -1,6 +1,7 @@
-package view;
+package presentationLayer;
 
 import java.awt.BorderLayout;
+import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.EventQueue;
 
@@ -47,19 +48,19 @@ public class UserMenu extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					UserMenu frame = new UserMenu();
-					frame.setVisible(true);
-					frame.setTitle("User's Menu");
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+//	public static void main(String[] args) {
+//		EventQueue.invokeLater(new Runnable() {
+//			public void run() {
+//				try {
+//					UserMenu frame = new UserMenu();
+//					frame.setVisible(true);
+//					frame.setTitle("User's Menu");
+//				} catch (Exception e) {
+//					e.printStackTrace();
+//				}
+//			}
+//		});
+//	}
 
 	/*
 	 * public void setDishes() { dishArray = new Dishes[] { new
@@ -88,6 +89,7 @@ public class UserMenu extends JFrame {
 			populateUI();
 		} else {
 			JLabel orderLabel = new JLabel();
+			orderLabel.setAlignmentX(Component.RIGHT_ALIGNMENT);
 			String orders = "<html>Your Orders are: ";
 			for (Dish d : ordr.getCurrUserOrderdDishes()) {
 				orders = orders + " <BR> " + d.getName();
@@ -127,6 +129,7 @@ public class UserMenu extends JFrame {
 			contentPane.removeAll();
 			
 			JLabel orderLabel = new JLabel();
+			orderLabel.setAlignmentX(Component.RIGHT_ALIGNMENT);
 			String orders = "<html>Your Orders are: ";
 			for (Dish d : ordr.getCurrUserOrderdDishes()) {
 				orders = orders + " <BR> " + d.getName();

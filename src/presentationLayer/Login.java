@@ -1,10 +1,11 @@
-package view;
+package presentationLayer;
 
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 
 import java.awt.BorderLayout;
 import javax.swing.SwingConstants;
@@ -16,10 +17,12 @@ import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import javax.swing.JTextField;
 import javax.swing.JPasswordField;
+import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Font;
 
 public class Login {
@@ -66,9 +69,9 @@ public class Login {
 		gridBagLayout.columnWeights = new double[] { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE };
 		gridBagLayout.rowWeights = new double[] { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE };
 		frame.getContentPane().setLayout(gridBagLayout);
-
-		JLabel lblNewLabel_1 = new JLabel("Login");
-		lblNewLabel_1.setFont(new Font("Times New Roman", Font.BOLD, 14));
+		
+		JLabel lblNewLabel_1 = new JLabel("  Login");
+//		lblNewLabel_1.setFont(new Font("Times New Roman", Font.BOLD, 14));
 		lblNewLabel_1.setForeground(Color.DARK_GRAY);
 		GridBagConstraints gbc_lblNewLabel_1 = new GridBagConstraints();
 		gbc_lblNewLabel_1.anchor = GridBagConstraints.EAST;
@@ -78,8 +81,7 @@ public class Login {
 		gbc_lblNewLabel_1.gridy = 1;
 		frame.getContentPane().add(lblNewLabel_1, gbc_lblNewLabel_1);
 
-		JLabel lblNewLabel = new JLabel("   User Name:");
-		lblNewLabel.setHorizontalAlignment(SwingConstants.RIGHT);
+		JLabel lblNewLabel = new JLabel("  User Name:", SwingConstants.RIGHT);
 		GridBagConstraints gbc_lblNewLabel = new GridBagConstraints();
 		gbc_lblNewLabel.anchor = GridBagConstraints.EAST;
 		gbc_lblNewLabel.insets = new Insets(0, 0, 5, 5);
@@ -97,8 +99,7 @@ public class Login {
 		frame.getContentPane().add(textField, gbc_textField);
 		textField.setColumns(25);
 
-		JLabel lblPassword = new JLabel("  Password:");
-		lblPassword.setHorizontalAlignment(SwingConstants.RIGHT);
+		JLabel lblPassword = new JLabel("Password:",SwingConstants.RIGHT);
 		GridBagConstraints gbc_lblPassword = new GridBagConstraints();
 		gbc_lblPassword.insets = new Insets(0, 0, 5, 5);
 		gbc_lblPassword.gridx = 1;

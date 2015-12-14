@@ -62,10 +62,11 @@ public class UsersOperation {
 		GetUserFromDB usersDBObject = new GetUserFromDB();
 		ArrayList<User> res = usersDBObject
 				.runSelectQuery("select * from users where user_name ='" + uName + "' and password =\"" + password + "\"");
-		currentUser = res.get(0);
+		
 		if (res.size() == 0) {
 			return false;
 		}
+		currentUser = res.get(0);
 		return true;
 	}
 
