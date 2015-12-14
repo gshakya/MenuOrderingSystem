@@ -32,16 +32,27 @@ public class UsersOperation {
 		String fName = u.getFirstName();
 		String lName = u.getLastName();
 		String pass = u.getPassword();
-		String query = "INSERT INTO `users` (`id`, `First_Name`, `Last_Name`, `Password`) VALUES (NULL, \'" + fName
-				+ "\', \'" + lName + "\', \'" + pass + "\')";
+		String uName =u.getUserName();
+		String query = "INSERT INTO `users` (`id`, `First_Name`, `Last_Name`, `user_name`,`Password`) VALUES (NULL, \'" + fName
+				+ "\', \'" + lName + "\', \'"+uName +"\', \'" + pass + "\')";
 		SendUserToDB sendUsr = new SendUserToDB();
 		users.add(u);
 		return sendUsr.runInsertQuery(query);
 	}
 
-	public static boolean checkPassword(int id, String password) {
-		if (id == 0 | password == null)
-			return false;
+	public static boolean isValidUser(String uName){
+		GetUserFromDB usersDBObject = new GetUserFromDB();
+		ArrayList<User> res = usersDBObject
+				.runSelectQuery("select * from users where user_name ='" + uName + "'");
+		
+		if (res.size() == 0) {
+			return true;
+		}
+		return false;
+	}
+	
+	public static boolean checkPassword(String uName, String password) {
+		
 		// Iterator<User> itr = users.iterator();
 		// while (itr.hasNext()) {
 		// User element = itr.next();
@@ -50,7 +61,7 @@ public class UsersOperation {
 		// }
 		GetUserFromDB usersDBObject = new GetUserFromDB();
 		ArrayList<User> res = usersDBObject
-				.runSelectQuery("select * from users where id =" + id + " and password =\"" + password + "\"");
+				.runSelectQuery("select * from users where user_name ='" + uName + "' and password =\"" + password + "\"");
 		currentUser = res.get(0);
 		if (res.size() == 0) {
 			return false;

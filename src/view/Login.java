@@ -78,7 +78,8 @@ public class Login {
 		gbc_lblNewLabel_1.gridy = 1;
 		frame.getContentPane().add(lblNewLabel_1, gbc_lblNewLabel_1);
 
-		JLabel lblNewLabel = new JLabel("ID");
+		JLabel lblNewLabel = new JLabel("   User Name:");
+		lblNewLabel.setHorizontalAlignment(SwingConstants.RIGHT);
 		GridBagConstraints gbc_lblNewLabel = new GridBagConstraints();
 		gbc_lblNewLabel.anchor = GridBagConstraints.EAST;
 		gbc_lblNewLabel.insets = new Insets(0, 0, 5, 5);
@@ -96,7 +97,8 @@ public class Login {
 		frame.getContentPane().add(textField, gbc_textField);
 		textField.setColumns(25);
 
-		JLabel lblPassword = new JLabel("Password");
+		JLabel lblPassword = new JLabel("  Password:");
+		lblPassword.setHorizontalAlignment(SwingConstants.RIGHT);
 		GridBagConstraints gbc_lblPassword = new GridBagConstraints();
 		gbc_lblPassword.insets = new Insets(0, 0, 5, 5);
 		gbc_lblPassword.gridx = 1;
@@ -115,10 +117,20 @@ public class Login {
 		JButton btnNewButton = new JButton("Sign In");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				String uName = textField.getText().trim();
+				String password = passwordField.getText().trim();
+				if (password.equals("")) {
+					JOptionPane.showMessageDialog(null, "Password Field Can't be empty");
+					return;
+				}
 
-				if (uo.checkPassword(Integer.parseInt(textField.getText()), passwordField.getText())) {
+				if (uName.equals("")) {
+					JOptionPane.showMessageDialog(null, "User Name Field Can't be empty");
+					return;
+				}
 
-					JOptionPane.showMessageDialog(null, "Correct Password");
+				if (uo.checkPassword(textField.getText(), passwordField.getText())) {
+
 					if (uo.getCurrentUser().isAdmin()) {
 						AdminMenu adm = new AdminMenu();
 						adm.setVisible(true);
@@ -151,7 +163,7 @@ public class Login {
 		JButton btnNewButton_1 = new JButton("Register");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				RegistrationForm registrationObject= new RegistrationForm();
+				RegistrationForm registrationObject = new RegistrationForm();
 				registrationObject.setLoginForm(Login.this.frame);
 				registrationObject.setVisible(true);
 				frame.setVisible(false);

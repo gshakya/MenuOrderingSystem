@@ -12,21 +12,34 @@ public class User {
 	private int id;
 	private String firstName;	
 	private String lastName;
-	private String password;
+	private String userName;
+	private String password;	
 	private boolean isAdmin;
 
 	public User() {
 
 	}
 
-	public User(int id, String firstName, String lastName, String password , boolean isAdmin) {
-		super();
-		this.firstName = firstName;
-		this.password = password;
+
+	public User(int id, String firstName, String lastName, String userName, String password, boolean isAdmin) {
 		this.id = id;
+		this.firstName = firstName;
 		this.lastName = lastName;
+		this.userName = userName;
+		this.password = password;
 		this.isAdmin = isAdmin;
 	}
+
+
+	public String getUserName() {
+		return userName;
+	}
+
+
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+
 
 	public String getFirstName() {
 		return firstName;
