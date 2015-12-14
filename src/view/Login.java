@@ -151,7 +151,8 @@ public class Login {
 		JButton btnNewButton_1 = new JButton("Register");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				RegistrationForm registrationObject = new RegistrationForm();
+				RegistrationForm registrationObject= new RegistrationForm();
+				registrationObject.setLoginForm(Login.this.frame);
 				registrationObject.setVisible(true);
 				frame.setVisible(false);
 			}

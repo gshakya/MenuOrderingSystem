@@ -11,7 +11,7 @@ import dataAccessLayer.dbInterface.ConnectToDB;
 import dataAccessLayer.dbInterface.ReceiveFromDB;
 
 public class AllDishes implements ReceiveFromDB {
-	static Dishes[] dishArray;
+	static Dish[] dishArray;
 
 //	public static void setDishes() {
 //		dishArray = new Dishes[] { new Dishes(1, "Pizza", false), new Dishes(2, "Pasta", false),
@@ -21,18 +21,18 @@ public class AllDishes implements ReceiveFromDB {
 //	}
 
 	@Override
-	public ArrayList<Dishes> runSelectQuery(String query) {
+	public ArrayList<Dish> runSelectQuery(String query) {
 		Connection connect = ConnectToDB.getConnection();
 		Statement statement = null;
 		ResultSet resultSet = null;
-		ArrayList<Dishes> dishes = new ArrayList<>();
+		ArrayList<Dish> dishes = new ArrayList<>();
 		try {
 			statement = (Statement) connect.createStatement();
 
 			resultSet = statement.executeQuery(query);
 
 			while (resultSet.next()) {
-				Dishes tmpDish = new Dishes();
+				Dish tmpDish = new Dish();
 				tmpDish.setDishID(resultSet.getInt("DISH_ID"));
 				tmpDish.setName(resultSet.getString("DISH_NAME"));
 				dishes.add(tmpDish);
@@ -45,12 +45,19 @@ public class AllDishes implements ReceiveFromDB {
 		return dishes;
 	}
 
-	public ArrayList<Dishes> getDishes() {
-		String query = "SELECT * FROM DISHES WHERE CURRENT='Y'";
-		ArrayList<Dishes> dishes = new ArrayList<>();
+	public ArrayList<Dish> getAllDishes() {
+		String query = "SELECT * FROM DISHES";
+		ArrayList<Dish> dishes = new ArrayList<>();
 		dishes = runSelectQuery(query);
 
 		return dishes;
 	}
+	
+	public ArrayList<Dish> getCurrDishes() {
+		String query = "SELECT * FROM DISHES WHERE CURRENT = 'Y'";
+		ArrayList<Dish> dishes = new ArrayList<>();
+		dishes = runSelectQuery(query);
 
+		return dishes;
+	}
 }

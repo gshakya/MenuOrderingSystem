@@ -33,6 +33,7 @@ public class RegistrationForm extends JFrame {
 	// private JTextField textField_2;
 	private JPasswordField passwordField;
 	private JPasswordField passwordField_1;
+	private JFrame mLogin;
 
 	/**
 	 * Launch the application.
@@ -255,6 +256,9 @@ public class RegistrationForm extends JFrame {
 					uo.insertUserToDB(u);
 
 					JOptionPane.showMessageDialog(null, "User Successfully Registered");
+					RegistrationForm.this.setVisible(false);
+					RegistrationForm.this.dispose();
+					mLogin.setVisible(true);
 
 				} else if (!(flag == 'y') && flag1 == 'y' && flag3 == 'y')
 					JOptionPane.showMessageDialog(null, "Please Insert valid First name");
@@ -275,6 +279,10 @@ public class RegistrationForm extends JFrame {
 		gbc_btnNewButton.gridx = 3;
 		gbc_btnNewButton.gridy = 7;
 		contentPane.add(btnNewButton, gbc_btnNewButton);
+	}
+
+	public void setLoginForm(JFrame login) {
+		mLogin = login;
 	}
 
 }

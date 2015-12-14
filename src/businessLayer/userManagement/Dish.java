@@ -1,15 +1,20 @@
 package businessLayer.userManagement;
 
-public class Dishes {
+public class Dish {
+	@Override
+	public String toString() {
+		return "Dish [name=" + name + ", selected=" + selected + ", dishID=" + dishID + "]";
+	}
+
 	private String name;
 	private boolean selected;
 	private int dishID;
   
-	public Dishes()
+	public Dish()
 	{
 		
 	}
-	public Dishes(int dishId,String name, boolean selected)
+	public Dish(int dishId,String name, boolean selected)
 	{
 	
 		this.name=name;
