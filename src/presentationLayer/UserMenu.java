@@ -48,19 +48,19 @@ public class UserMenu extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-//	public static void main(String[] args) {
-//		EventQueue.invokeLater(new Runnable() {
-//			public void run() {
-//				try {
-//					UserMenu frame = new UserMenu();
-//					frame.setVisible(true);
-//					frame.setTitle("User's Menu");
-//				} catch (Exception e) {
-//					e.printStackTrace();
-//				}
-//			}
-//		});
-//	}
+	// public static void main(String[] args) {
+	// EventQueue.invokeLater(new Runnable() {
+	// public void run() {
+	// try {
+	// UserMenu frame = new UserMenu();
+	// frame.setVisible(true);
+	// frame.setTitle("User's Menu");
+	// } catch (Exception e) {
+	// e.printStackTrace();
+	// }
+	// }
+	// });
+	// }
 
 	/*
 	 * public void setDishes() { dishArray = new Dishes[] { new
@@ -126,21 +126,25 @@ public class UserMenu extends JFrame {
 				i++;
 			}
 			ordr.placeorder(selectedDishes, contentPane);
-			contentPane.removeAll();
-			
-			JLabel orderLabel = new JLabel();
-			orderLabel.setAlignmentX(Component.RIGHT_ALIGNMENT);
-			String orders = "<html>Your Orders are: ";
-			for (Dish d : ordr.getCurrUserOrderdDishes()) {
-				orders = orders + " <BR> " + d.getName();
-			}
-			orders = orders + "</html>";
-			System.out.println(orders);
-			orderLabel.setText(orders);
+			if (!selectedDishes.equals("")) {
+				
+				contentPane.removeAll();
 
-			contentPane.add(orderLabel);
-			contentPane.revalidate();
-			repaint();
+				JLabel orderLabel = new JLabel();
+				orderLabel.setAlignmentX(Component.RIGHT_ALIGNMENT);
+				String orders = "<html>Your Orders are: ";
+				for (Dish d : ordr.getCurrUserOrderdDishes()) {
+					orders = orders + " <BR> " + d.getName();
+				}
+				orders = orders + "</html>";
+				System.out.println(orders);
+				orderLabel.setText(orders);
+
+				contentPane.add(orderLabel);
+				contentPane.revalidate();
+				repaint();
+
+			}
 		}
 	}
 
